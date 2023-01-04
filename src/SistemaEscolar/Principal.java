@@ -45,39 +45,35 @@ public class Principal {
 
 
 	private static void ExcluirAlunoReprovados(ArrayList <Aluno> aluno) {
-
-		System.out.print(" Matricula :");
-		int matricula = Integer.parseInt(in.nextLine());
 		
-		for (Aluno a: aluno) {
+		for (Aluno a : aluno) {
+		
+		if(a.getConselho()== -1) {
 			
-			if(a.getMatricula() == matricula) {
-				System.out.println("\n Nome : "+a.getNome()
-				+"\n Curso : "+a.getCurso()
-				+"\n Nota 1 : "+a.getNota1()
-				+"\n Nota 2 : "+a.getNota2()
-				+"\n Nota 3 : "+a.getNota3()
-				+"\n Media : "+a.getMedia()
-				+"\n Conselho : "+a.getConselho());
-				
-				aluno.remove(a);
-				
-				System.out.println("=================\n"+a.getNome()+ " foi  Removido! \n=================");
-				
-				
-			}
 			
+			System.out.println("====================================="
+					+ "\n"+a.getNome()+","+"vc Reprovou o Curso! \n=====================================");
+
+			aluno.add(a);
+
+		}
 		}
 	}
 
 	private static void alunosAprovados(ArrayList<Aluno> aluno) {
+
+		
 
 		for (Aluno a : aluno) {
 
 			if(a.getConselho() == 1) {
 				System.out.println(" Nome : "+a.getNome()
 				+"\n Media : "+a.getMedia()
-				+"\n Conselho : "+a.getConselho());
+				+"\n Resultado : "+a.getConselho());
+				
+				System.out.println("====================================="
+						+ "\n"+a.getNome()+","+" Parabens voce passou do Curso !! \n=====================================");
+
 			}
 		}
 	}
@@ -96,13 +92,15 @@ public class Principal {
 			if(a.getMatricula() == matricula) {
 
 				if(a.getMedia() >= 7) {
-					System.out.println("\n "+a.getNome() +"  voce foi Aprovado !");
+					System.out.println("\n "+a.getNome() +","+ " media " +a.getMedia()+ 
+							"  voce foi Aprovado/a !");
 					aprovado++;
 				a.setConselho(aprovado++);
 					System.out.println("-------------");
 
 				}else{
-					System.out.println("\n "+a.getNome()+" voce foi  Reprovado!!");
+					System.out.println("\n "+a.getNome() +","+ " Media " +a.getMedia()+ 
+							"  voce foi Reprovado/a !");					
 					reprovado--;
 					a.setConselho(reprovado--);
 
@@ -171,7 +169,7 @@ public class Principal {
 			+"\n Nota 2 : "+a.getNota2()
 			+"\n Nota 3 : "+a.getNota3()
 			+"\n Media : "+a.getMedia()
-			+"\n Conselho : "+a.getConselho());
+			+"\n Resultado : "+a.getConselho());
 
 			System.out.println("--------------------------");
 
