@@ -54,7 +54,7 @@ public class Principal {
 			System.out.println("====================================="
 					+ "\n"+a.getNome()+","+"vc Reprovou o Curso! \n=====================================");
 
-			aluno.add(a);
+			aluno.remove(a);
 
 		}
 		}
